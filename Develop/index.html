@@ -28,6 +28,32 @@
           <button id="generate" class="btn">Generate Password</button>
           <button id="copy" class="btn">Copy</button>
         </div>
+        <div class="slider-container">
+          <div class="value-container">
+            Password Length:
+            <span id="counter">8</span>
+          </div>
+          <input type="range" min="8" max="128" value="0" class="slider" id="myRange">
+        </div>
+        <div class="checkbox-container">
+          <div class="upper-container">
+            <input type="checkbox" class="checkmark" id="check-upper">
+            <label for="#check-upper">Uppercase A-Z</label>
+          </div>
+          <div class="lower-container">
+            <input type="checkbox" class="checkmark" id="check-lower">
+            <label for="check-lower">Lowercase a-z</label>
+          </div>
+          <div class="number-container">
+            <input type="checkbox" class="checkmark" id="check-number">
+            <label for="check-number">Numbers 0-9</label>
+          </div>
+          <div class="special-container">
+            <input type="checkbox" class="checkmark" id="check-special">
+            <label for="check-special">Special Characters</label>
+          </div>
+
+        </div>
       </div>
     </div>
     <script src="script.js"></script>

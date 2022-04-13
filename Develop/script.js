@@ -1,24 +1,54 @@
 // button location
 var generateBtn = document.querySelector("#generate");
 var copyBtn = document.querySelector("#copy");
+var upperCb = document.querySelector("#check-upper");
+var lowerCb = document.querySelector("#check-lower");
+var numberCb = document.querySelector("#check-number");
+var specialCb = document.querySelector("#check-special");
 
-var numbers = "0123456789";
-var lowerCase = "abcdefghijklmnopqrstuvwxyz";
-var special = "~`!@#$%^&*()_-+={[}]|'<,>.?/";
-var upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-var combineAll = numbers.concat(lowerCase, special, upperCase);
+var output = document.getElementById("counter");
+
+var slider = document.getElementById("myRange").oninput = function() {
+  var value = (this.value - this.min)/(this.max - this.min)*100;
+  output.innerHTML = this.value;
+}
+
+
+
 
 // generate password with different options
 function writePassword() {
-  var passwordLength = parseInt(prompt("Enter Password Length (8-128)"));
-  if (passwordLength < 8 || passwordLength > 128) {
-    window.alert("Please enter valid option");
-    writePassword();
-  } else {
+    // check if checkboxes are checked then either add them or not to passwordString
+    if (upperCb.checked) {
+      var upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    } else {
+      var upperCase = "";
+    }
+  
+    if (lowerCb.checked) {
+      var lowerCase = "abcdefghijklmnopqrstuvwxyz";
+    } else {
+      var lowerCase = "";
+    }
+  
+    if (numberCb.checked) {
+      var numbers = "0123456789";
+    } else {
+      var numbers = "";
+    }
+  
+    if (specialCb.checked) {
+      var special = "~`!@#$%^&*_-+=|',.?/";
+    } else {
+      var special = "";
+    }
+  
+    var passwordString = lowerCase.concat(upperCase, special, numbers);
+
     var password = "";
-    for (var i = 0; i < passwordLength; i++) {
-      var randomNumber = Math.floor(Math.random() * combineAll.length);
-      password += combineAll.substring(randomNumber, randomNumber + 1);
+    for (var i = 0; i < counter.textContent; i++) {
+      var randomNumber = Math.floor(Math.random() * passwordString.length);
+      password += passwordString.substring(randomNumber, randomNumber + 1);
       
       // asigns print location to var
       var passwordText = document.querySelector("#password");
@@ -26,8 +56,8 @@ function writePassword() {
       // prints password in box
       passwordText.value = password;
     }
-  }
 }
+
 
 // copies password to clipboard
 function copyPassword() {
@@ -41,3 +71,4 @@ function copyPassword() {
 generateBtn.addEventListener("click", writePassword);
 // run function on copy button click
 copyBtn.addEventListener("click", copyPassword);
+

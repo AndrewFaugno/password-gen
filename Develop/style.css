@@ -118,6 +118,39 @@ button[disabled] {
   overflow: hidden;
 }
 
+.slider-container {
+  width: 100%;
+  padding: 15px;
+  background-color: rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+}
+.slider {
+  width: 100%;
+}
+.value-container {
+  text-align: center;
+  font-size: 24px;
+}
+#counter {
+  font-size: 24px;
+}
+
+.checkbox-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.upper-container, .number-container, .lower-container, .special-container {
+  padding: 10px;
+  padding-top: 30px;
+}
+.checkmark {
+  height: 20px;
+  width: 20px;
+}
+
+
+
 @media (max-width: 690px) {
   .btn {
     font-size: 1rem;
